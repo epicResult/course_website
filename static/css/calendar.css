@@ -1,0 +1,36 @@
+iframe {
+  width: 80%;
+  max-width: 800px;
+}
+
+.cal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 1rem 0rem;
+}
+
+.grid-item-2 h2 {
+  font-size: 20px;
+  color: gray;
+}
+
+.grid-item-2 p {
+  font-size: 20px;
+}
+
+.grid-item-2 a,
+.grid-item-2 a:visited {
+  text-decoration: none;
+  font-weight: bold;
+  color: blue;
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 400px) {
+  iframe {
+    width: 100%;
+  }
+}

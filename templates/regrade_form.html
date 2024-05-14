@@ -1,0 +1,56 @@
+{% extends "template.html" %} {% block content %}
+
+<section class="content">
+  {% if not session.name or session.user_type != "instructor" %}
+  <p>This page can only be accessed by instructors</p>
+  {% else %}
+  <div class="grid-container">
+    {% if regrade_req %}
+    <div class="grid-item">
+      <h1>Resolve Regrade Request #{{ regrade_req.regrade_id }}</h1>
+    </div>
+    <div class="grid-item-2 form-container">
+      {% if error %}
+      <p class="error"><strong>Error:</strong> {{ error }} {% endif %}</p>
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <ul class="flashes">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% endwith %}
+
+      <form
+        action="http://127.0.0.1:5000/regrade/{{ regrade_req.regrade_id }}"
+        method="post"
+      >
+        <label for="assessment_name">Assessment Name</label>
+        <p class="details">{{regrade_req.assessment_name}}</p>
+        <label for="student_name">Student Username</label>
+        <p class="details">{{regrade_req.student_username}}</p>
+
+        <label for="description">Description</label>
+        <p class="details">{{regrade_req.description}}</p>
+
+        <label for="original_grade">Original Grade</label>
+        <p class="details">{{regrade_req.grade}}</p>
+        <label for="new_grade">Updated Grade</label>
+        <input
+          type="number"
+          id="new_grade"
+          name="new_grade"
+          placeholder="Enter new grade"
+          min="0"
+          step="0.01"
+        />
+
+        <button type="submit">Resolve</button>
+      </form>
+    </div>
+    {% else %}
+    <p>This regrade request does not exist</p>
+    {% endif %}
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends "template.html" %} {% block content %}
+<section class="content">
+  <div class="grid-container">
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <ul class="flashes">
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %} {% if session["user_type"] == "instructor" %}
+    <div class="grid-item">
+      <h1>Student Regrades</h1>
+    </div>
+    <div class="grid-item-2 regrades">
+      <a href="{{ url_for('grades') }}">View Grades</a>
+    </div>
+    {% if regrades %} {% for assessment in regrades %}
+    <div class="grid-item-2" id="{{assessment}}">
+      <h2>{{assessment}}</h2>
+      <table class="center">
+        <tr>
+          <th>Student Username</th>
+          <th>Regrade Request</th>
+        </tr>
+
+        {% for regrade in regrades[assessment] %}
+        <tr class="cell">
+          <td>{{regrade.student_username}}</td>
+          <td>
+            <a href="{{ url_for('regrade_id', id=regrade.regrade_id)}}"
+              >Regrade Link</a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    {% endfor %} {% else %}
+
+    <p>There are no assignments (yet!)</p>
+    {% endif %} {% else %}
+
+    <div class="grid-item">
+      <h1>My Regrades</h1>
+    </div>
+
+    <div class="grid-item-2">
+      <h2>Unresolved Regrades</h2>
+      {% if unresolved_regrades %}
+      <table class="center">
+        <tr>
+          <th>Assessment Name</th>
+          <th>Grade</th>
+          <th>Weight</th>
+          <th>Regrade Request Details</th>
+        </tr>
+
+        {% for regrade in unresolved_regrades%}
+        <tr class="cell">
+          <td>{{regrade.assessment_name}}</td>
+          <td>{{regrade.grade}}%</td>
+          <td>{{regrade.weight}}</td>
+          <td>{{regrade.description}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% endif %}
+      <a href="{{ url_for('add_regrade') }}">Submit a Regrade Request</a>
+    </div>
+
+    <div class="grid-item-2">
+      <h2>Resolved Regrades</h2>
+      {% if resolved_regrades %}
+      <table class="center">
+        <h3>
+          Please check
+          <a
+            href="https://markus2.utsc.utoronto.ca/courses/20/assignments"
+            target="_blank"
+            >Markus</a
+          >
+          for details
+        </h3>
+        <tr>
+          <th>Assessment Name</th>
+          <th>Grade</th>
+          <th>Weight</th>
+          <th>Regrade Request Details</th>
+        </tr>
+
+        {% for regrade in resolved_regrades %}
+        <tr class="cell">
+          <td>{{regrade.assessment_name}}</td>
+          <td>{{regrade.grade}}%</td>
+          <td>{{regrade.weight}}</td>
+          <td>{{regrade.description}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% else %}
+
+      <p>There are no resolved regrades (yet!)</p>
+      {% endif %}
+    </div>
+
+    {% endif %}
+  </div>
+</section>
+{% endblock content %}

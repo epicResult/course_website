@@ -1,0 +1,95 @@
+{% extends "template.html" %} {% block content %}
+
+<section class="content">
+
+  {% if not session.name or session.user_type != "instructor" %}
+  <p>This page can only be accessed by instructors</p>
+  {% else %}
+
+  <div class="grid-container">
+
+    <div class="grid-item">
+      <h1>Add Assessment</h1>
+    </div>
+
+    <div class="grid-item-2 form-container">
+      {% if error %}
+      <p class="error"><strong>Error:</strong> {{ error }} {% endif %}</p>
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <ul class="flashes">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% endwith %}
+
+      <form action="http://127.0.0.1:5000/add_assessment" method="post">
+        <label for="name">Assessment Name</label>
+        <input type="text" id="name" name="name" />
+
+        <label for="type">Assessment Type</label>
+        <select name="type" id="type" onchange="load_form()">
+          <option value="assignment" selected>Assignment</option>
+          <option value="test">Test</option>
+          <option value="lab">Lab</option>
+        </select>
+
+        <div class="" id="assignment_fields">
+          <label for="topic">Topic</label>
+          <input type="text" id="topic" name="topic" />
+
+          <label for="weight">Weight</label>
+          <input type="text" id="weight" name="weight" />
+
+          <label for="date">Due Date</label>
+          <input type="datetime-local" id="date" name="date" />
+
+          <label for="handout">Handout File Name</label>
+          <input type="text" id="handout" name="handout" value="handout.pdf" />
+
+          <label for="last_name">Solutions File Name</label>
+          <input
+            type="text"
+            id="solutions"
+            name="solutions"
+            value="solutions.pdf"
+          />
+        </div>
+
+        <div class="hide" id="test_fields">
+          <label for="test_date">Date and Time</label>
+          <input type="datetime-local" id="test_date" name="test_date" />
+
+          <label for="location">Location</label>
+          <input type="text" id="location" name="location" />
+
+          <label for="test_weight">Weight</label>
+          <input type="text" id="test_weight" name="test_weight" />
+
+          <label for="content">Content</label>
+          <input type="text" id="content" name="content" />
+        </div>
+
+        <div class="hide" id="lab_fields">
+          <label for="lab_topic">Topic</label>
+          <input type="text" id="lab_topic" name="lab_topic" />
+
+          <label for="handout">Handout File Name</label>
+          <input type="text" id="handout" name="handout" value="handout.pdf" />
+
+          <label for="solutions">Solutions File Name</label>
+          <input
+            type="text"
+            id="solutions"
+            name="solutions"
+            value="solutions.pdf"
+          />
+        </div>
+
+        <button type="add">Add</button>
+      </form>
+    </div>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

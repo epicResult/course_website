@@ -1,0 +1,30 @@
+{% extends "template.html" %} {% block content %}
+<section class="content">
+  <div class="grid-container">
+    <div class="grid-item">
+      <h1>Course Calendar</h1>
+    </div>
+
+    <div class="grid-item-2 cal">
+      <a
+        href="https://calendar.google.com/calendar/ical/a81323c48ccf5abd25fa8c0d422728ec99ab01048920e241c859098ba8650a13%40group.calendar.google.com/public/basic.ics"
+        >Import to your calendar</a
+      >
+
+      <iframe
+        src="https://calendar.google.com/calendar/embed?src=a81323c48ccf5abd25fa8c0d422728ec99ab01048920e241c859098ba8650a13%40group.calendar.google.com&ctz=America%2FToronto"
+        height="600px"
+        frameborder="0"
+        scrolling="no"
+      ></iframe>
+    </div>
+
+    <div class="grid-item-2">
+      <h2>
+        Lectures, Tutorials and Office Hours can also be found at
+        <a href="{{ url_for('course_team')}}">Course Team</a>
+      </h2>
+    </div>
+  </div>
+</section>
+{% endblock content %}

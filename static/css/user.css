@@ -1,0 +1,78 @@
+.grid-item-2 p {
+  font-size: 20px;
+}
+
+
+.button a {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.student-buttons-box {
+  margin: 3rem 0rem;
+  display: grid;
+  grid-template-columns: 250px 250px;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+}
+
+.instructor-buttons-box {
+  margin: 3rem 0rem;
+  display: grid;
+  grid-template-columns: 250px 250px 250px;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+}
+
+.box-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  height: 200px;
+  width: 200px;
+  min-height: 200px;
+  min-width: 200px;
+  background: white;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 1rem;
+  overflow: hidden;
+  padding: 3rem;
+  border: 2px solid black;
+}
+
+.button:hover {
+  background: #e4e4e5;
+  cursor: pointer;
+  border-color: #007fa3;
+}
+
+img {
+  height: 80%;
+}
+
+@media only screen and (max-width: 1300px) {
+  .student-buttons-box {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .instructor-buttons-box {
+    grid-template-columns: 250px 250px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .instructor-buttons-box {
+    grid-template-columns: 250px;
+  }
+  .student-buttons-box {
+    grid-template-columns: 250px;
+  }
+}

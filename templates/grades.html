@@ -1,0 +1,70 @@
+{% extends "template.html" %} {% block content %}
+<section class="content">
+  <div class="grid-container">
+    {% if session["user_type"] == "instructor" %}
+
+    <div class="grid-item">
+      <h1>Student Grades</h1>
+    </div>
+
+    <div class="grid-item-2 regrades">
+      <a href="{{ url_for('regrades') }}">View Regrade Requests</a>
+    </div>
+
+
+    {% if grades %} {% for assessment in grades %}
+    <div class="grid-item-2" id="{{assessment}}">
+      <h2>{{assessment}}</h2>
+
+      <h3>Average = {{avgs[assessment]}}</h3>
+
+      <table class="center">
+        <tr>
+          <th>Student Username</th>
+          <th>Grade</th>
+        </tr>
+
+        {% for grade in grades[assessment] %}
+        <tr class="cell">
+          <td>{{grade.student_username}}</td>
+          <td>{{grade.grade}}%</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    {% endfor %} {% else %}
+
+    <p>There are no assignments (yet!)</p>
+    {% endif %} {% else %}
+
+    <div class="grid-item">
+      <h1>My Grades</h1>
+    </div>
+
+    {% if grades %}
+    <div class="grid-item-2">
+      <h3>Current Overall Grade = {{final_mark}}</h3>
+      <table class="center">
+        <tr>
+          <th>Assessment Name</th>
+          <th>Grade</th>
+          <th>Weight</th>
+        </tr>
+
+        {% for grade in grades%}
+        <tr class="cell">
+          <td>{{grade.assessment_name}}</td>
+          <td>{{grade.grade}}%</td>
+          <td>{{grade.weight}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <a href="{{ url_for('add_regrade') }}">Submit a Regrade Request</a>
+    </div>
+    {% else %}
+
+    <p>There are no assignments (yet!)</p>
+    {% endif %} {% endif %}
+  </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,104 @@
+{% extends "template.html" %} {% block content %}
+<section class="content">
+  <div class="grid-container">
+    <div class="grid-item">
+      <h1>Welcome, {{ user.first_name}}!</h1>
+    </div>
+    {% if session.user_type == 'instructor' %}
+
+    <div class="grid-item">
+      <div class="instructor-buttons-box">
+        <div class="box-item">
+          <button class="button" onclick="user_button('/regrades')">
+            <img src="{{ url_for('static', filename='images/replay.svg') }}" />
+            <br />
+            Regrades
+          </button>
+        </div>
+
+        <div class="box-item">
+          <button class="button" onclick="user_button('/grades')">
+            <img src="{{ url_for('static', filename='images/list.svg') }}" />
+            <br />
+            All Grades
+          </button>
+        </div>
+
+        <div class="box-item">
+          <button class="button" onclick="user_button('/add_grade')">
+            <img
+              src="{{ url_for('static', filename='images/add.svg') }}"
+            />
+            <br />
+            Add Grade
+          </button>
+        </div>
+
+        <div class="box-item">
+          <button class="button" onclick="user_button('/add_assessment')">
+            <img src="{{ url_for('static', filename='images/assignment.svg') }}" />
+            <br />
+            Add Assessment
+          </button>
+        </div>
+
+        <div class="box-item">
+          <button class="button" onclick="user_button('/feedback')">
+            <img src="{{ url_for('static', filename='images/feedback.svg') }}" />
+            <br />
+            Feedback
+          </button>
+        </div>
+
+        <div class="box-item">
+          <button class="button" onclick="user_button('/logout')">
+            <img src="{{ url_for('static', filename='images/logout.svg') }}" />
+            <br />
+            Logout
+          </button>
+        </div>
+    </div>
+    {% endif %} {% if session.user_type == 'student' %}
+
+    <div class="grid-item">
+      <div class="student-buttons-box">
+        <div class="box-item">
+          <button class="button" onclick="user_button('/regrades')">
+            <img src="{{ url_for('static', filename='images/replay.svg') }}" />
+            <br />
+            Regrades
+          </button>
+        </div>
+
+        <div class="box-item">
+          <button class="button" onclick="user_button('/grades')">
+            <img src="{{ url_for('static', filename='images/list.svg') }}" />
+            <br />
+            My Grades
+          </button>
+        </div>
+
+        <div class="box-item">
+          <button class="button" onclick="user_button('/feedback')">
+            <img
+              src="{{ url_for('static', filename='images/feedback.svg') }}"
+            />
+            <br />
+            Feedback
+          </button>
+        </div>
+
+        <div class="box-item">
+          <button class="button" onclick="user_button('/logout')">
+            <img src="{{ url_for('static', filename='images/logout.svg') }}" />
+            <br />
+            Logout
+          </button>
+        </div>
+
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock content %}

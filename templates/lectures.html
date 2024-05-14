@@ -1,0 +1,118 @@
+{% extends "template.html" %} {% block content %}
+<section class="content">
+  <div class="grid-item">
+    <h1>Lectures</h1>
+  </div>
+
+  <div class="grid-item-2">
+    <h2>Overview</h2>
+    <p>Please print and bring these notes/worksheets to class</p>
+  </div>
+  <div class="grid-item-2">
+    <table class="center">
+      <h2>Lecture Material</h2>
+      <tr>
+        <th>Week</th>
+        <th>Topic</th>
+        <th>Lecture Material</th>
+      </tr>
+
+      <tr class="cell">
+        <td>1</td>
+        <td>Introduction</td>
+        <td>
+          <a href="{{ url_for('static', filename='files/CSCB20_Assignment_3.pdf') }}" target="_blank">Notes</a>
+        </td>
+      </tr>
+
+      <tr class="cell">
+        <td>2</td>
+        <td>Basic Relational Alegbra</td>
+        <td>
+          <a href="{{ url_for('static', filename='files/CSCB20_Assignment_3.pdf') }}" target="_blank">Notes</a>
+        </td>
+      </tr>
+
+      <tr class="cell">
+        <td>3</td>
+        <td>Advanced Relational Algebra</td>
+        <td>
+          <a href="{{ url_for('static', filename='files/CSCB20_Assignment_3.pdf') }}" target="_blank">Notes</a>
+        </td>
+      </tr>
+
+      <tr class="cell">
+        <td>4</td>
+        <td>Relational Algebra and SQL</td>
+        <td>
+          <a href="{{ url_for('static', filename='files/CSCB20_Assignment_3.pdf') }}" target="_blank">Notes</a>
+        </td>
+      </tr>
+
+      <tr class="cell">
+        <td>5</td>
+        <td>SQL Subqueries</td>
+        <td>
+          <a href="{{ url_for('static', filename='files/CSCB20_Assignment_3.pdf') }}f" target="_blank">Notes</a>
+        </td>
+      </tr>
+
+      <tr class="cell">
+        <td>6</td>
+        <td>Introduction to Frontend (HTML and CSS)</td>
+        <td>
+          <a href="{{ url_for('static', filename='files/CSCB20_Assignment_3.pdf') }}"target="_blank">Notes</a>
+        </td>
+      </tr>
+
+      <tr class="cell">
+        <td>7</td>
+        <td>Flask with HTML/CSS</td>
+        <td>
+          <a href="{{ url_for('static', filename='files/CSCB20_Assignment_3.pdf') }}" target="_blank">Notes</a>
+        </td>
+      </tr>
+
+      <tr class="cell">
+        <td>8</td>
+        <td>Javascript Basics + DOM</td>
+        <td>
+          <a href="{{ url_for('static', filename='files/CSCB20_Assignment_3.pdf') }}" target="_blank">Notes</a>
+        </td>
+      </tr>
+
+      <tr class="cell">
+        <td>9</td>
+        <td>DOM Manipulation</td>
+        <td>
+          <a href="{{ url_for('static', filename='files/CSCB20_Assignment_3.pdf') }}" target="_blank">Notes</a>
+        </td>
+      </tr>
+
+      <tr class="cell">
+        <td>10</td>
+        <td>Javscript integrated with SQL</td>
+        <td>
+          <a href="{{ url_for('static', filename='files/CSCB20_Assignment_3.pdf') }}" target="_blank">Notes</a>
+        </td>
+      </tr>
+
+      <tr class="cell">
+        <td>11</td>
+        <td>Fullstack Development Summary</td>
+        <td>
+          <a href="{{ url_for('static', filename='files/CSCB20_Assignment_3.pdf') }}" target="_blank">Notes</a>
+        </td>
+      </tr>
+
+      <tr class="cell">
+        <td>12</td>
+        <td>Advanced Libraries</td>
+        <td>
+          <a href="{{ url_for('static', filename='files/CSCB20_Assignment_3.pdf') }}" target="_blank">Notes</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</section>
+{% endblock content %}

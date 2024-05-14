@@ -1,0 +1,43 @@
+{% extends "template.html" %} {% block content %} {% with messages =
+get_flashed_messages(with_categories = True) %} {% if messages %}
+<ul class="flashes">
+  {% for category, message in messages %}
+  <div><strong>{{ category }}</strong> - {{ message }}</div>
+  {% endfor %}
+</ul>
+{% endif %} {% endwith %}
+<section class="content">
+  <div class="grid-container">
+    <div class="grid-item">
+      <h1>Register</h1>
+    </div>
+    <div class="grid-item-2 form-container">
+      {% if error %}
+      <p class="error"><strong>Error:</strong> {{ error }} {% endif %}</p>
+
+      <form action="http://127.0.0.1:5000/register" method="post">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="Username" />
+
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" name="First_Name" />
+
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="Last_Name" />
+
+        <label for="password">Password</label>
+        <input type="password" id="Password" name="Password" />
+
+        <label for="User_type">User Type</label>
+
+        <select name="User_type" id="user_type">
+          <option value="student" selected>Student</option>
+          <option value="instructor">Instructor</option>
+        </select>
+
+        <button type="register">Register</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

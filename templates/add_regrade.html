@@ -1,0 +1,46 @@
+{% extends "template.html" %} {% block content %}
+
+<section class="content">
+  {% if not session.name or session.user_type != "student" %}
+  <p>This page can only be accessed by students</p>
+  {% else %}
+
+  <div class="grid-container">
+    <div class="grid-item">
+      <h1>Submit a Regrade Request</h1>
+    </div>
+
+    <div class="grid-item-2 form-container">
+      {% if error %}
+      <p class="error"><strong>Error:</strong> {{ error }} {% endif %}</p>
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <ul class="flashes">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% endwith %}
+
+      <form action="http://127.0.0.1:5000/add_regrade" method="post">
+        <label for="assessment_name">Assessment Name</label>
+        <select name="assessment_name" id="type">
+          {% for assessment in assessments %}
+          <option value="{{ assessment.assessment_name }}">
+            {{assessment.assessment_name}}
+          </option>
+          {% endfor %}
+        </select>
+
+        <label for="description">Description</label>
+        <textarea
+          name="description"
+          placeholder="Mention the questions that you want to be regraded, and briefly mention the reasons"
+        ></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

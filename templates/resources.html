@@ -1,0 +1,104 @@
+{% extends "template.html" %} {% block content %}
+<section class="content">
+  <div class="grid-container">
+    <div class="grid-item">
+      <h1>Resources</h1>
+    </div>
+    <div class="grid-item-2">
+      <div class="resource-item">
+        <a href="{{ url_for('home')}}"> <h2>Courses Website</h2></a>
+        <p class="resource-type">Online Resources</p>
+        <p class="resource">
+          Courses information, lecture notes, tutorial material, important
+          announcements, etc. will be posted on the course website. It is your
+          responsibility to visit it frequently.
+        </p>
+      </div>
+    </div>
+    <div class="grid-item-2">
+      <div class="resource-item">
+        <a
+          href="https://code.tutsplus.com/sql-for-beginners--net-8200a"
+          target="_blank"
+        >
+          <h2>MySQL Tutorial</h2></a
+        >
+        <p class="resource-type">Online Resources</p>
+        <p class="resource">
+          This is a beginner friendly tutorial for MySQL that you can use as a
+          reference
+        </p>
+      </div>
+    </div>
+    <div class="grid-item-2">
+      <div class="resource-item">
+        <a href="{{ url_for('course_team')}}"> <h2>Email</h2></a>
+        <p class="resource-type">Online Resources</p>
+        <p class="resource">
+          Questions about the assignment which you feel you cannot formulate
+          without revealing your solution (should be very rare!), as well as
+          questions and concerns regarding your personal matters should be
+          directed to the instructor. Instructor email can be found at
+          <a href="{{ url_for('course_team')}}">course team</a>.
+        </p>
+      </div>
+    </div>
+    <div class="grid-item-2">
+      <div class="resource-item">
+        <a href="https://piazza.com/class/lqy466htv8g5xb" target="_blank">
+          <h2>Piazza</h2></a
+        >
+        <p class="resource-type">Online Resources</p>
+        <p class="resource">
+          You are encouraged to use the bulletin board to discuss the course
+          material, pose questions on the assignments, etc. The bulletin board
+          will be monitored by the instructor and by your TAs. Please, be very
+          careful not to reveal (parts of) your solution on the bulletin board.
+        </p>
+      </div>
+    </div>
+    <div class="grid-item-2">
+      <div class="resource-item">
+        <a
+          href="https://markus2.utsc.utoronto.ca/courses/20/assignments"
+          target="_blank"
+        >
+          <h2>MarkUs</h2></a
+        >
+        <p class="resource-type">Assignments</p>
+        <p class="resource">
+          This is where you will submit your assignments and form groups.
+        </p>
+      </div>
+    </div>
+    <div class="grid-item-2">
+      <div class="resource-item">
+        <h2>Logging in to MathLab</h2>
+        <p class="resource-type">Software and documentation</p>
+        <ul>
+          <li>
+            <p>
+              MacOS comes with the application "terminal". Simply click to run
+              it. Login to MathLab by typing
+              <code>ssh utorid@mathlab.utsc.utoronto.ca</code> Enter your
+              password
+            </p>
+          </li>
+          <li>
+            <p>
+              On Windows, you will need an SSH client. PuTTY is a good free one.
+              You can download and install it here:
+              <a
+                href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html"
+                target="_blank"
+                >PuTTY</a
+              >. Use the same command as above to login to mathlab:
+              <code>ssh utorid@mathlab.utsc.utoronto.ca</code>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

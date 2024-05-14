@@ -1,0 +1,38 @@
+table {
+  width: 95%;
+  border-collapse: collapse;
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  overflow: hidden;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #dddddd;
+  overflow: hidden;
+}
+
+th {
+  background-color: #f2f2f2;
+  resize: horizontal;
+  overflow: hidden;
+}
+
+.cell:hover {
+  background-color: #eeeeee;
+  color: #007fa3;
+}
+
+.cell a {
+  text-decoration: none;
+}
+
+.cell a:visited {
+  text-decoration: none;
+  color: blue;
+}

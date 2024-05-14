@@ -1,0 +1,65 @@
+{% extends "template.html" %} {% block content %}
+<section class="content">
+  <div class="grid-container">
+    <div class="grid-item">
+      <h1>Assignments</h1>
+    </div>
+
+    <div class="grid-item-2">
+      <h2>Overview</h2>
+      <p>
+        These are the assignment handouts, topics, weights and due dates. All
+        assignments have to be submitted on
+        <a
+          href="https://markus2.utsc.utoronto.ca/courses/20/assignments"
+          target="_blank"
+          >MarkUs</a
+        >.
+      </p>
+    </div>
+
+    <div class="grid-item-2">
+      <h2>Assignments</h2>
+
+      {% if assignments %}
+      <table class="center">
+        <tr>
+          <th>Name</th>
+          <th>Handout</th>
+          <th>Topic</th>
+          <th>Weight</th>
+          <th>Due Date</th>
+          <th>Solutions</th>
+        </tr>
+
+        {% for assignment in assignments %}
+        <tr class="cell">
+          <td>{{ assignment.assessment_name }}</td>
+          <td>
+            <a
+              href="{{ url_for('static', filename='files/CSCB20_Assignment_3.pdf') }}"
+              target="_blank"
+              >Handout</a
+            >
+          </td>
+          <td>{{ assignment.description}}</td>
+          <td>{{assignment.weight}}%</td>
+          <td>{{parse_date(assignment.due_date)}}</td>
+          <td>
+            <a
+              href="{{ url_for('static', filename='files/CSCB20_Assignment_3.pdf') }}"
+              target="_blank"
+              >Solns</a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+
+      {% else %}
+      <p>There are no assignments (yet!)</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock content %}

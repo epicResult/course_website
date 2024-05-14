@@ -1,0 +1,33 @@
+table {
+  width: 50%;
+}
+
+.grid-item-2 {
+  margin: 3rem 0rem;
+}
+
+.regrades {
+  margin: 1rem 0rem;
+}
+
+.grid-item-2 h2, h3 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid-item-2 a,
+.grid-item-2 a:visited {
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+}
+
+.grid-item-2 p {
+  font-size: 20px;
+}
+
+li {
+  margin: 4px 0px;
+}
+
+

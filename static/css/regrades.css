@@ -1,0 +1,44 @@
+table {
+  width: 50%;
+}
+
+p {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 1rem;
+}
+
+.grid-item-2 {
+  margin: 3rem 0rem;
+}
+
+.regrades {
+  margin: 1rem 0rem;
+}
+
+.grid-item-2 h2, h3 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid-item-2 a,
+.grid-item-2 a:visited {
+  margin-top: 1rem;
+  text-decoration: none;
+  color: blue;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+}
+
+.grid-item-2 p {
+  font-size: 20px;
+  margin-top: 0px;
+}
+li {
+  margin: 4px 0px;
+}
+
+ul {
+  font-weight: bold;
+}

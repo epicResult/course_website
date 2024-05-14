@@ -1,0 +1,34 @@
+{% extends "template.html" %} {% block content %}
+<section class="content">
+  <div class="grid-container">
+    <div class="grid-item">
+      <h1>Tests</h1>
+    </div>
+    {% if tests %} {% for test in tests %}
+    <div class="grid-item-2">
+      <div class="test-item">
+        <h2>{{test.assessment_name}}</h2>
+        <ul>
+          <li>
+            <p>
+              <strong>Date and Time:</strong> {{ parse_date(test.due_date) }}
+            </p>
+          </li>
+          <li>
+            <p><strong>Location:</strong> {{ test.location }}</p>
+          </li>
+          <li>
+            <p><strong>Weight:</strong> {{ test.weight }}%</p>
+          </li>
+          <li>
+            <p><strong>Content:</strong> {{ test.description }}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    {% endfor %} {% else %}
+    <p>There are no tests (yet!)</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock content %}

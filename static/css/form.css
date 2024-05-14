@@ -1,0 +1,84 @@
+form {
+  background-color: white;
+  border: 1px solid #e5e5e4;
+  font-size: 16px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  transition: all 0.2s ease;
+  padding: 40px;
+  margin: 20px;
+  width: 50%;
+}
+label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+
+textarea,
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #e5e5e4;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: white;
+  font-size: 16px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #00b7f5;
+}
+
+
+button {
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px;
+  background: #007fa3;
+  border: 2px solid #007fa3;
+  border-radius: 8px;
+  margin-top: 16px;
+  color: white;
+}
+
+button:hover {
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+select {
+  width: 100%;
+  font-size: 1.15rem;
+  background-color: #fff;
+  border: 1px solid #e5e5e4;
+  border-radius: 0.25rem;
+  margin-bottom: 16px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 1rem 0rem;
+}
+
+.error {
+  color: red;
+}
+
+@media only screen and (max-width: 800px) {
+  form {
+    width: 100%;
+    padding: 10px;
+    border: 0px;
+    box-shadow: 0 0px 0 rgba(0, 0, 0, 0.03) inset;
+  }
+}

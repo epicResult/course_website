@@ -1,0 +1,84 @@
+{% extends "template.html" %} {% block content %}
+
+<section class="content">
+  {% if not session.name %}
+  <p>This page can only be accessed by logged in users</p>
+  {% else %}
+
+  {% if session.user_type == 'student' %}
+  <div class="grid-container">
+    <div class="grid-item">
+      <h1>Anonymous Feedback</h1>
+    </div>
+    <div class="grid-item-2 form-container">
+
+      {% if error %}
+      <p class="error"><strong>Error:</strong> {{ error }} {% endif %}</p>
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <ul class="flashes">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% endwith %}
+
+      <form action="http://127.0.0.1:5000/feedback" method="post">
+        <label for="instructor_name">Who would you like to send this feedback to?</label>
+        <select name="instructor_name" id="instructor">
+          {% for instructor in instructors %}
+          <option value="{{ instructor.username }}">
+            {{instructor.first_name + ' ' + instructor.last_name}}
+          </option>
+          {% endfor %}
+        </select>
+
+        <label for="like_instructor">What do you like about the instructor's teaching?</label>
+        <textarea
+          name="like_instructor"
+        ></textarea>
+
+        <label for="improve_instructor">How do you think the instructor can improve their teaching?</label>
+        <textarea
+          name="improve_instructor"
+        ></textarea>
+
+        <label for="like_labs">What do you like about the labs?</label>
+        <textarea
+          name="like_labs"
+        ></textarea>
+
+        <label for="improve_labs">How could the labs be improved?</label>
+        <textarea
+          name="improve_labs"
+        ></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+  {% else %}
+
+  <div class="grid-container">
+    <div class="grid-item feedback">
+      <h1>Feedback</h1>
+    </div>
+
+    {% for feedback in all_feedback %}
+    <div class="grid-item-2">
+      <div class="feedback-item">
+        <h2>Feedback #{{ feedback.id }}</h2>
+        <p class="question">What did you like about the instructor's teaching?</p>
+        <p class="answer">{{ feedback.instructor_like }}</p>
+        <p class="question">How can the instructor improve their teaching?</p>
+        <p class="answer">{{ feedback.instructor_improve }}</p>
+        <p class="question">What did you like about the labs?</p>
+        <p class="answer">{{ feedback.labs_like }}</p>
+        <p class="question">How can the labs be improved?</p>
+        <p class="answer">{{ feedback.labs_improve }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  {% endif %}
+  {% endif %}
+</section>
+{% endblock %}

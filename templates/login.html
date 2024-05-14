@@ -1,0 +1,31 @@
+{% extends "template.html" %} {% block content %}
+
+<section class="content">
+  <div class="grid-container">
+    <div class="grid-item">
+      <h1>Log In</h1>
+    </div>
+    <div class="grid-item-2 form-container">
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <ul class="flashes">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% endwith %}
+      <form action="http://127.0.0.1:5000/login" method="post">
+        <label for="username">Username</label>
+        <input type="text" id="Username" name="Username" />
+
+        <label for="password">Password</label>
+        <input type="password" id="Password" name="Password" />
+
+        <button type="login">Login</button>
+        <div class="register">
+          <p>Not a registered user? <a href="{{ url_for('register') }}"> Register</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

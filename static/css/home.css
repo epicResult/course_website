@@ -1,0 +1,18 @@
+.grid-item-2 h2 {
+  font-size: 20px;
+  color: #007fa3;
+}
+
+.grid-item-2 p {
+  font-size: 20px;
+  margin-top: 0px;
+}
+
+.login-message {
+  font-size: 16px;
+  margin-top: 8px;
+}
+.grid-item-2 a,
+.grid-item-2 a:visited {
+  font-size: 20px;
+}

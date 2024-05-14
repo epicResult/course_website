@@ -1,0 +1,37 @@
+.grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1fr;
+}
+.grid-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.grid-item-2 a,
+.grid-item-2 a:visited {
+  text-decoration: none;
+  color: blue;
+  font-size: 16;
+}
+.grid-item-2 a:hover {
+  text-decoration: underline;
+  color: blue;
+}
+
+.grid-item-2 p {
+  font-size: 16px;
+  margin-top: 16px;
+}
+
+.grid-item-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: right;
+  width: 100%;
+  margin: 1rem 0rem;
+}

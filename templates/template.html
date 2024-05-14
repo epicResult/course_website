@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ title }}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/header.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/footer.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/grid.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/form.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/table.css') }}"
+    />
+    
+    {% if pagename %}
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/' + pagename + '.css') }}"
+    />
+    {% endif %}
+
+    <script src="{{url_for('static', filename='javascript/add_assessment.js')}}"></script>
+    <script src="{{url_for('static', filename='javascript/user.js')}}"></script>
+    <script src="{{url_for('static', filename='javascript/adjust_header.js')}}"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="navbar-item">
+          <a href="{{ url_for('home') }}">
+            <h2 class="heading">CSCB20 Winter 2024</h2>
+          </a>
+          <a href="{{ url_for('home') }}">
+            <h2 class="heading cname">
+              Introduction to Databases and Web Development
+            </h2>
+          </a>
+        </div>
+        <div class="navbar-links">
+          <a href="/">Home</a>
+          {% if session.name %}
+          <a href="{{ url_for('lectures') }}">Lectures</a>
+          <a href="{{ url_for('labs') }}">Labs</a>
+          <a href="{{ url_for('assignments') }}">Assignments</a>
+          <a href="{{ url_for('tests') }}">Tests</a>
+          <a href="{{ url_for('calendar') }}">Calendar</a>
+          <a href="{{ url_for('news') }}">News</a>
+          <!--<a href="https://piazza.com/class/lqy466htv8g5xb" target="_blank">Piazza</a>-->
+          <a href="{{ url_for('resources') }}">Resources</a>
+          <a href="{{ url_for('course_team') }}">Course Team</a>
+          <a href="{{ url_for('user') }}">My Account</a>
+          <a href="{{ url_for('logout') }}">Logout</a>
+
+          {% else %}
+          <a href="{{ url_for('login') }}">Login</a>
+          <a href="{{ url_for('register') }}">Register</a>
+
+          {% endif %}
+        </div>
+      </div>
+
+    </header>
+    {% block content %} {% endblock %}
+
+    <footer>
+      <div class="foot">
+        <div class="footer-items">
+          <a href="https://www.utoronto.ca/" target="_blank"
+            ><img src="{{ url_for('static', filename='images/logo.svg') }}"
+          /></a>
+        </div>
+        <div class="footer-items">
+          <a href="https://www.utsc.utoronto.ca/cms/" target="_blank"
+            >Department of Computer and Mathematical Sciences</a
+          >
+        </div>
+        <div class="footer-items credits">
+          <p>Site design by Ayaan, Harguntas and Quincy</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

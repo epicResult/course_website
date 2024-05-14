@@ -1,0 +1,43 @@
+textarea {
+  height: 100px;
+}
+
+.feedback-item h2 {
+  color: #007fa3;
+}
+
+.feedback {
+  font-size: 20px;
+}
+
+.question {
+  margin-bottom: 1rem;
+  color: gray;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.feedback-item {
+  width: 80%;
+  max-width: 800px;
+  border: 1px solid gray;
+  border-radius: 1rem;
+  padding: 25px;
+  margin: 20px 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feedback-item:hover {
+  background: #eeeeee;
+  border: 1px solid #007fa3;
+}
+
+@media only screen and (max-width: 400px) {
+  .feedback-item {
+    width: 100%;
+    border: 0px;
+    padding: 0px;
+    border-radius: 0;
+  }
+}

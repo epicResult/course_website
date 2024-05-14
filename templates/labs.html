@@ -1,0 +1,45 @@
+{% extends "template.html" %} {% block content %}
+<section class="content">
+  <div class="grid-container">
+    <div class="grid-item">
+      <h1>Tutorials</h1>
+    </div>
+    <div class="grid-item-2">
+      <h2>Tutorial Sections</h2>
+      <p>
+        Tutorials are held every week, the first tutorial is in week 2. Please
+        go to the tutorial section that you signed up for.
+      </p>
+    </div>
+    <div class="grid-item-2">
+      <h2>Tutorial Exercises</h2>
+      <table class="center">
+        <tr>
+          <th>Name</th>
+          <th>Topic</th>
+          <th>Handout</th>
+          <th>Solutions</th>
+        </tr>
+
+        {% for lab in labs %}
+        <tr class="cell">
+          <td>{{ lab.assessment_name }}</td>
+          <td>{{ lab.description }}</td>
+          <td>
+            <a href="{{ url_for('static', filename='files/CSCB20_Assignment_3.pdf') }}" target="_blank"
+              >Handout</a
+            ><br />
+          </td>
+          <td>
+            <a href="{{ url_for('static', filename='files/CSCB20_Assignment_3.pdf') }}" target="_blank"
+              >Solns</a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock content %}
